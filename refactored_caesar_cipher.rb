@@ -1,23 +1,21 @@
-# rubocop: disable Metrics/AbcSize
-def caesar_cipher(str, num) # rubocop:disable Metrics/MethodLength
-  crypto_str = ""
-  str.each_char do |char|
-    ascii_value = char.ord
-    if ascii_value.between?(65, 90)
-      target = ascii_value + num
-      str = target > 90 ? (target - 90 + 64).chr : target.chr
-      crypto_str += str
-    elsif ascii_value.between?(97, 122)
-      target = ascii_value + num
-      str = target > 122 ? (target - 122 + 96).chr : target.chr
-      crypto_str += str
-    else
-      crypto_str += char
-    end
-  end
-  crypto_str
+def caesar_cipher(str, num)
+  str.chars.map { |char| crypto(char, num) }.join
 end
-# rubocop: enable Metrics/AbcSize
+
+def convert_ascii(target, min, max)
+  target > max ? (target - max + min).chr : target.chr
+end
+
+def crypto(char, num)
+  ascii_value = char.ord
+  if ascii_value.between?(65, 90)
+    convert_ascii(ascii_value + num, 64, 90)
+  elsif ascii_value.between?(97, 122)
+    convert_ascii(ascii_value + num, 96, 122)
+  else
+    char
+  end
+end
 
 p caesar_cipher("What a string!", 5)
 # "Bmfy f xywnsl!"
