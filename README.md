@@ -1,8 +1,8 @@
 # Caesar Cipher
 
-In criptography, Caesar Cipher's one of the simplest ciphers known. The goal is to change each letter of the given string to another letter based on a given number of positions down or up the alphabet. 
+In cryptography, Caesar Cipher's one of the simplest ciphers known. The goal is to change each letter of the given string to another letter based on a given number of positions down or up the alphabet. 
 
-The goal of this project is to implement the criptography method. 
+The goal of this project is to implement the cryptography method. 
 
 ## Approach
 
